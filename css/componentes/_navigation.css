@@ -1,0 +1,82 @@
+/* ==================================== */
+/* 5. components/_navigation.css        */
+/* Navegação e Menu Dropdown/Hambúrguer */
+/* ==================================== */
+
+.nav-bar {
+    display: flex; /* Flexbox no header para alinhar logo e menu */
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-2) 0;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--spacing-3);
+}
+
+.nav-item {
+    position: relative;
+}
+
+/* Submenu Dropdown */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: white;
+    border: 1px solid var(--color-neutral-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    list-style: none;
+    padding: var(--spacing-2) 0;
+}
+
+.nav-item:hover > .submenu {
+    display: block;
+}
+
+/* Menu Hambúrguer (Oculto no Desktop) */
+.menu-toggle {
+    display: none;
+    font-size: var(--font-size-h3);
+    cursor: pointer;
+}
+
+/* Responsividade de Navegação (Menu Mobile) */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: block; /* Mostra o ícone no mobile */
+    }
+
+    .nav-menu {
+        /* Esconde o menu e prepara para ser toggle */
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Posição abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    /* Classe ativada por JavaScript para abrir o menu */
+    .nav-menu.is-open {
+        display: flex;
+    }
+
+    .submenu {
+        /* Modifica o submenu para aparecer in-line no mobile */
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: var(--spacing-3);
+    }
+}
