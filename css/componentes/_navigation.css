@@ -73,40 +73,56 @@
 /* RESPONSIVIDADE MOBILE (Breakpoint 767px) */
 @media (max-width: 767px) {
     
-    /* 1. Mostra o label/ícone do hambúrguer */
+    /* Oculta o menu de desktop */
+    .nav-menu {
+        display: none; 
+    }
+
+    /* 1. MOSTRA e POSICIONA o ícone do hambúrguer (Label) */
     .menu-toggle-label {
         display: block;
+        
+        /* Chave: Remove do fluxo para não afetar o site-brand */
+        position: absolute; 
+        right: var(--spacing-2); 
+        top: 50%; /* Centraliza verticalmente no header */
+        transform: translateY(-50%); 
+        
+        z-index: 200;
+        
+        /* Você deve usar um ícone aqui, como um ::before ou a tag <img>. 
+           Se estiver usando o "☰" simples, ele funcionará. */
     }
     
-    /* 2. Configura o menu mobile (inicialmente escondido) */
+    /* 2. CONFIGURA O MENU: Posição e aparência no mobile */
     .nav-menu {
-        display: none; /* Escondemos a estrutura inteira */
+        /* A regra display: none acima esconde ele. Não repita aqui. */
         flex-direction: column;
+        
+        /* Posição absoluta para cobrir a largura total */
         position: absolute;
-        top: 100%; 
+        top: 100%; /* Inicia logo abaixo do header */
         left: 0;
         width: 100%;
+        
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 99;
     }
 
- 
-
-    /* 🔑 CSS PURE: Lógica para abrir o menu */
-    /* Quando o checkbox invisível (input) estiver checked, ele seleciona o elemento nav-menu (irmão geral ~) */
+    /* 🔑 LÓGICA DE ABERTURA (Aqui o display: flex entra em ação) */
     #menu-toggle:checked ~ .nav-menu {
-        display: flex; /* Mostra o menu */
+        display: flex; 
     }
-       /* Oculta o layout horizontal do desktop */
+    
+    /* 3. Ajusta o menu principal e os submenus */
     .nav-menu ul {
         flex-direction: column;
         padding: var(--spacing-3);
     }
 
-    /* Ajusta o submenu para o mobile (aparece verticalmente) */
     .submenu {
-        position: static; /* Tira o absolute */
+        position: static; 
         box-shadow: none;
         border: none;
         padding-left: var(--spacing-3);
