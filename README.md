@@ -17,4 +17,22 @@ Estrutura
  - contato.html
  - img/ (placeholders SVG)
 
+css/
+├── base/
+│   ├── _reset.css         # Reset ou Normalize
+│   ├── _typography.css    # Estilos de elementos HTML base (h1, p, a)
+│   └── _base.css          # Estilos globais do body, etc.
+├── settings/
+│   └── _variables.css     # 🔑 Sistema de Design (Cores, Fontes, Espaçamento)
+├── components/
+│   ├── _button.css        # Botões
+│   ├── _card.css          # Cards responsivos
+│   ├── _form.css          # Formulários e validação
+│   └── _navigation.css    # Menu Principal e Hambúrguer
+├── layout/
+│   └── _grid.css          # 🔑 CSS Grid (12 colunas) e Estrutura geral
+├── pages/
+│   └── _home.css          # Estilos específicos para a página inicial
+└── style.css              # Arquivo principal que importa todos os módulos
+
 Licença: Licença Acadêmica de Software (ASL).
