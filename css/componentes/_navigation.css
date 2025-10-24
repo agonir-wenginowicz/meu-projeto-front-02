@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-2) 0;
+    position: relative;
 }
 
 /* ------------------------------------- */
@@ -149,7 +150,9 @@
         transform: translateY(-50%); 
         
         z-index: 200;
-        
+
+        /* Ajuste este padding para que a área clicável seja maior */
+        padding: var(--spacing-4);
         /* Você deve usar um ícone aqui, como um ::before ou a tag <img>. 
            Se estiver usando o "☰" simples, ele funcionará. */
     }
@@ -169,6 +172,11 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 99;
     }
+    .menu-toggle-label {
+        /* ... outros estilos ... */
+        top: var(--spacing-2); /* Posiciona no topo, a âncora do ícone cuida do resto */
+        transform: none;
+    }
 
     /* 🔑 LÓGICA DE ABERTURA (Aqui o display: flex entra em ação) */
     #menu-toggle:checked ~ .nav-menu {
@@ -177,8 +185,11 @@
     
     /* 3. Ajusta o menu principal e os submenus */
     .nav-menu ul {
-        flex-direction: column;
-        padding: var(--spacing-3);
+        /* ... outros estilos ... */
+        top: 100%; /* Isso garante que o menu comece *abaixo* do cabeçalho */
+        left: 0;
+        width: 100%;
+        /* ... */
     }
 
     .submenu {
