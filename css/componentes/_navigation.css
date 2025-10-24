@@ -91,16 +91,17 @@
         z-index: 99;
     }
 
-    /* Oculta o layout horizontal do desktop */
-    .nav-menu ul {
-        flex-direction: column;
-        padding: var(--spacing-3);
-    }
+ 
 
     /* 🔑 CSS PURE: Lógica para abrir o menu */
     /* Quando o checkbox invisível (input) estiver checked, ele seleciona o elemento nav-menu (irmão geral ~) */
     #menu-toggle:checked ~ .nav-menu {
         display: flex; /* Mostra o menu */
+    }
+       /* Oculta o layout horizontal do desktop */
+    .nav-menu ul {
+        flex-direction: column;
+        padding: var(--spacing-3);
     }
 
     /* Ajusta o submenu para o mobile (aparece verticalmente) */
