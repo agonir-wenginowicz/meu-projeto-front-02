@@ -32,6 +32,37 @@
     margin-bottom: var(--spacing-3);
 }
 
+/* Estilização para Checkboxes/Radios com Flexbox */
+.form-group-checkboxes {
+    /* Define o Flexbox para alinhar os itens horizontalmente se a tela for larga */
+    display: flex;
+    flex-direction: column; /* Padrão Mobile: em coluna */
+    gap: var(--spacing-2);
+}
+
+.form-group-checkboxes p {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.checkbox-label {
+    display: flex; /* Flexbox para alinhar o input e o texto */
+    align-items: center;
+    font-weight: normal; /* Sobrescreve o negrito do label padrão */
+    gap: var(--spacing-1);
+    margin-bottom: 0;
+}
+
+/* Responsividade para alinhar em linha no desktop */
+@media (min-width: 768px) {
+    .form-group-checkboxes {
+        flex-direction: row; /* Desktop: Alinha horizontalmente */
+    }
+}
+
+
+
+
 .custom-form label {
     font-weight: 500;
     margin-bottom: 0.5rem;
