@@ -70,6 +70,66 @@
     display: block;
 }
 
+/* ------------------------------------- */
+/* 3. DESENHO DO ÍCONE HAMBÚRGUER        */
+/* ------------------------------------- */
+
+/* O span central (a primeira barra) */
+.hamb-icon,
+.hamb-icon::before,
+.hamb-icon::after {
+    display: block;
+    width: 25px; /* Largura das barras */
+    height: 3px; /* Altura das barras */
+    background-color: var(--color-primary-dark); /* Cor das barras */
+    position: absolute; /* Para mover os pseudo-elementos */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Garante que o span principal tenha a altura da barra */
+.hamb-icon {
+    position: relative;
+    top: 50%; /* Centraliza o ícone dentro do label */
+}
+
+/* Oculta os pseudo-elementos do fluxo padrão */
+.hamb-icon::before,
+.hamb-icon::after {
+    content: '';
+}
+
+/* Posiciona a barra superior */
+.hamb-icon::before {
+    top: -8px; 
+}
+
+/* Posiciona a barra inferior */
+.hamb-icon::after {
+    top: 8px; 
+}
+
+/* ------------------------------------- */
+/* 4. ANIMAÇÃO (Ícone em X)              */
+/* ------------------------------------- */
+
+/* Quando o checkbox é marcado, transforma as barras em um 'X' */
+#menu-toggle:checked ~ .menu-toggle-label .hamb-icon {
+    background-color: transparent; /* Esconde a barra do meio */
+}
+
+/* Rotaciona a barra superior e move para o centro */
+#menu-toggle:checked ~ .menu-toggle-label .hamb-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+/* Rotaciona a barra inferior e move para o centro */
+#menu-toggle:checked ~ .menu-toggle-label .hamb-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+
 /* RESPONSIVIDADE MOBILE (Breakpoint 767px) */
 @media (max-width: 767px) {
     
