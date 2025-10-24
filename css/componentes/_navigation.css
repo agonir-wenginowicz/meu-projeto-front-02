@@ -134,37 +134,36 @@
 /* RESPONSIVIDADE MOBILE (Breakpoint 767px) */
 @media (max-width: 767px) {
     
-    /* Oculta o menu de desktop */
+    /* Oculta o menu de desktop por padrão no mobile */
     .nav-menu {
-        display: none; 
+        display: none; 
     }
 
     /* 1. MOSTRA e POSICIONA o ícone do hambúrguer (Label) */
     .menu-toggle-label {
         display: block;
         
-        /* Chave: Remove do fluxo para não afetar o site-brand */
-        position: absolute; 
-        right: var(--spacing-2); 
-        top: 50%; /* Centraliza verticalmente no header */
+        /* Posicionamento do botão em relação ao nav-bar (que tem position: relative) */
+        position: absolute; 
+        right: var(--spacing-2); 
+        
+        /* Centraliza verticalmente o ícone na altura do header */
+        top: 50%; 
         transform: translateY(-50%); 
         
         z-index: 200;
-
-        /* Ajuste este padding para que a área clicável seja maior */
-        padding: var(--spacing-4);
-        /* Você deve usar um ícone aqui, como um ::before ou a tag <img>. 
-           Se estiver usando o "☰" simples, ele funcionará. */
+        
+        /* Adiciona área clicável */
+        padding: var(--spacing-4); 
     }
     
     /* 2. CONFIGURA O MENU: Posição e aparência no mobile */
     .nav-menu {
-        /* A regra display: none acima esconde ele. Não repita aqui. */
         flex-direction: column;
         
-        /* Posição absoluta para cobrir a largura total */
+        /* Ocupa a largura total abaixo do cabeçalho */
         position: absolute;
-        top: 100%; /* Inicia logo abaixo do header */
+        top: 100%; /* Inicia logo abaixo da linha do header */
         left: 0;
         width: 100%;
         
@@ -172,28 +171,20 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 99;
     }
-    .menu-toggle-label {
-        /* ... outros estilos ... */
-        top: var(--spacing-2); /* Posiciona no topo, a âncora do ícone cuida do resto */
-        transform: none;
-    }
 
-    /* 🔑 LÓGICA DE ABERTURA (Aqui o display: flex entra em ação) */
+    /* 🔑 LÓGICA DE ABERTURA: Se o checkbox estiver marcado, mostra o menu */
     #menu-toggle:checked ~ .nav-menu {
-        display: flex; 
+        display: flex; 
     }
     
-    /* 3. Ajusta o menu principal e os submenus */
+    /* 3. Ajustes de layout interno */
     .nav-menu ul {
-        /* ... outros estilos ... */
-        top: 100%; /* Isso garante que o menu comece *abaixo* do cabeçalho */
-        left: 0;
-        width: 100%;
-        /* ... */
+        flex-direction: column;
+        padding: var(--spacing-3);
     }
 
     .submenu {
-        position: static; 
+        position: static; 
         box-shadow: none;
         border: none;
         padding-left: var(--spacing-3);
