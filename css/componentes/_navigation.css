@@ -1,16 +1,20 @@
 /* ==================================== */
 /* 5. components/_navigation.css        */
-/* Navegação e Menu Dropdown/Hambúrguer */
+/* Navegação, Dropdown e Hambúrguer (CSS PURE ONLY) */
 /* ==================================== */
 
 .nav-bar {
-    display: flex; /* Flexbox no header para alinhar logo e menu */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-2) 0;
 }
 
-.nav-menu {
+/* ------------------------------------- */
+/* 1. DROP-DOWN (Funciona com :hover)    */
+/* ------------------------------------- */
+
+.nav-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -18,13 +22,12 @@
     gap: var(--spacing-3);
 }
 
-.nav-item {
+.nav-item-dropdown {
     position: relative;
 }
 
-/* Submenu Dropdown */
 .submenu {
-    display: none;
+    display: none; /* Inicia Oculto */
     position: absolute;
     top: 100%;
     left: 0;
@@ -37,44 +40,72 @@
     padding: var(--spacing-2) 0;
 }
 
-.nav-item:hover > .submenu {
+/* 🔑 CSS PURE: Mostra o Submenu ao passar o mouse sobre o item pai (li) */
+.nav-item-dropdown:hover > .submenu,
+.nav-item-dropdown:focus-within > .submenu { /* Adiciona acessibilidade via teclado */
     display: block;
 }
 
-/* Menu Hambúrguer (Oculto no Desktop) */
-.menu-toggle {
+
+/* ------------------------------------- */
+/* 2. MENU HAMBÚRGUER (Apenas CSS)       */
+/* ------------------------------------- */
+
+/* Oculta o checkbox em todas as telas */
+.menu-toggle-input {
     display: none;
-    font-size: var(--font-size-h3);
-    cursor: pointer;
 }
 
-/* Responsividade de Navegação (Menu Mobile) */
-@media (max-width: 767px) {
-    .menu-toggle {
-        display: block; /* Mostra o ícone no mobile */
-    }
+/* Estiliza o ícone do hambúrguer (apenas visível no mobile) */
+.menu-toggle-label {
+    display: none; /* Oculto por padrão (desktop) */
+    cursor: pointer;
+    padding: var(--spacing-2);
+    font-size: var(--font-size-h3);
+    z-index: 200; /* Garante que fique acima do menu */
+}
 
+/* Garante que o menu principal seja flex (desktop) */
+.nav-menu {
+    display: block;
+}
+
+/* RESPONSIVIDADE MOBILE (Breakpoint 767px) */
+@media (max-width: 767px) {
+    
+    /* 1. Mostra o label/ícone do hambúrguer */
+    .menu-toggle-label {
+        display: block;
+    }
+    
+    /* 2. Configura o menu mobile (inicialmente escondido) */
     .nav-menu {
-        /* Esconde o menu e prepara para ser toggle */
-        display: none; 
+        display: none; /* Escondemos a estrutura inteira */
         flex-direction: column;
         position: absolute;
-        top: 100%; /* Posição abaixo do header */
+        top: 100%; 
         left: 0;
         width: 100%;
         background-color: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 99;
     }
 
-    /* Classe ativada por JavaScript para abrir o menu */
-    .nav-menu.is-open {
-        display: flex;
+    /* Oculta o layout horizontal do desktop */
+    .nav-menu ul {
+        flex-direction: column;
+        padding: var(--spacing-3);
     }
 
+    /* 🔑 CSS PURE: Lógica para abrir o menu */
+    /* Quando o checkbox invisível (input) estiver checked, ele seleciona o elemento nav-menu (irmão geral ~) */
+    #menu-toggle:checked ~ .nav-menu {
+        display: flex; /* Mostra o menu */
+    }
+
+    /* Ajusta o submenu para o mobile (aparece verticalmente) */
     .submenu {
-        /* Modifica o submenu para aparecer in-line no mobile */
-        position: static;
+        position: static; /* Tira o absolute */
         box-shadow: none;
         border: none;
         padding-left: var(--spacing-3);
