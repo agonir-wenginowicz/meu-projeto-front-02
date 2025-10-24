@@ -8,38 +8,39 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="main-header">
+<header class="main-header">
     <div class="container nav-bar">
-      
-      <div class="site-brand">
-        <img src="img/logo.svg" alt="Logotipo" class="site-logo">
-        <div>
-          <h1 class="site-title">Instituto Exemplo</h1>
-          <p class="muted site-subtitle">Nossa história</p>
+        
+        <div class="site-brand">
+            <img src="img/logo.svg" alt="Logotipo" class="site-logo">
+            <div>
+                <h1 class="site-title">Instituto Exemplo</h1>
+                <p class="muted site-subtitle">Transformando comunidades</p>
+            </div>
         </div>
-      </div>
-      
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">
-        ☰
-      </button>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-input" aria-controls="main-navigation">
+        
+        <label for="menu-toggle" class="menu-toggle-label">
+            <span class="hamb-icon"></span>
+        </label>
 
-      <nav-bar class="nav-menu" id="main-navigation" aria-label="Principal">
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li class="nav-item-dropdown">
-            <a href="projetos.html" aria-expanded="false">Projetos ▼</a>
-            <ul class="submenu">
-              <li><a href="#">Projeto Alfa</a></li>
-              <li><a href="#">Projeto Beta</a></li>
-              <li><a href="#">Projeto Gama</a></li>
+        <nav class="nav-menu" id="main-navigation" aria-label="Principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="projetos.html">Projetos ▼</a>
+                    <ul class="submenu">
+                        <li><a href="#">Projeto Alfa</a></li>
+                        <li><a href="#">Projeto Beta</a></li>
+                    </ul>
+                </li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
-          </li>
-          <li><a href="cadastro.html" class="btn btn-primary">Cadastro</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav-bar>
+        </nav>
     </div>
-  </header>
+</header>
   
   <main class="container">
     <article class="grid-12">
