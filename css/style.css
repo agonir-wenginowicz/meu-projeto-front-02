@@ -8,7 +8,7 @@
 
 /* 2. BASE (Reset, Estilos HTML padrão) */
 @import url('base/_reset.css');
-@import url('base/_typography.css');
+/*@import url('base/_typography.css');*/
 
 /* 3. LAYOUT (Grid e Estrutura) */
 @import url('layout/_grid.css');
