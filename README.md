@@ -1,6 +1,6 @@
 # meu-projeto-front
 Descrição:\
-Projeto para a primeira entrega da disciplina Desenvolvimento Front-End Para Web.  Este projeto contem 4 paginas html mais pasta com imagens
+Projeto para a segunda entrega da disciplina Desenvolvimento Front-End Para Web.
 
 Como usar:\
 Faça download do projeto.\
